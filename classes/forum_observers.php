@@ -37,5 +37,12 @@ class forum_observers {
             } catch (Exception $e) {
             }
         }
+        require_once($CFG->dirroot.'/local/mahoutsolr/lib.php');
+        $mahoutclient = new MahoutClient();
+        if ($mahoutclient->isSpam($event->get_record_snapshot('forum_posts', $event->objectid))) {
+            require_once($CFG->dirroot . '/blocks/spam_deletion/lib.php');
+            $lib = new \forum_post_spam($event->objectid);
+            $lib->register_vote(2);// TODO: decide what to do with user id
+        }
     }
 }
