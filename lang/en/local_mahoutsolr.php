@@ -7,4 +7,4 @@ $string['mahouthost_desc'] = 'This is the full URL to the webservice to classify
 $string['mahoutport'] = 'The port where the Mahout webservice is available';
 $string['mahoutport_desc'] = 'The port to access the webservice to classify spam with Mahout. Default is 8080.';
 $string['settings'] = 'Mahout/Solr forum improvements';
-$string['show_related_discussions'] = 'Show related discussions';
+$string['related_discussions'] = 'Related discussions';
