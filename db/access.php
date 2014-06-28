@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Capabilities for forum improvements using Apache Mahout and Solr
+ * Capabilities for Forum improvements using Apache Solr
  *
- * @package    local_mahoutsolr
+ * @package    local_solr
  * @copyright  2014 Daniel Neis
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $capabilities = array(
 
-    'local/mahoutsolr:config' => array(
+    'local/solr:config' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(

@@ -1,10 +1,10 @@
-M.local_mahoutsolr = {};
+M.local_solr = {};
 
 // This function adds the 'show related discussions' link and list on every discussion.
-M.local_mahoutsolr.show_related_discussions = function(Y, related_discussions) {
+M.local_solr.show_related_discussions = function(Y, related_discussions) {
     var mainsection = Y.one('#page-mod-forum-discuss #region-main');
 
-    mainsection.append('<h3>' + M.str.local_mahoutsolr.related_discussions + '</a></h3>');
+    mainsection.append('<h3>' + M.str.local_solr.related_discussions + '</a></h3>');
 
     var related_list = '<ul id="relateddiscussions">';
     for (var i in related_discussions) {
