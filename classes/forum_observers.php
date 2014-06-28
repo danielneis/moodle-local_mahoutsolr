@@ -47,9 +47,9 @@ class forum_observers {
      */
     public static function post_created(\mod_forum\event\post_created $event) {
 
-        $this->addToSolr($event);
+        self::addToSolr($event);
 
-        $this->classifyAndReportSpam($event);
+        self::classifyAndReportSpam($event);
     }
 
     /**
@@ -58,13 +58,13 @@ class forum_observers {
      * @param \mod_forum\event\post_created $event The event.
      * @return void
      */
-    protected classifyAndReportSpam(\mod_forum\event\post_created $event);
+    protected static function classifyAndReportSpam(\mod_forum\event\post_created $event) {
 
         $snapshot = $event->get_record_snapshot('forum_posts', $event->objectid);
-        $newpost = $snapshot->subject .' '. $snapshot->message;
+        $text = $snapshot->subject .' '. $snapshot->message;
 
         $config = get_config('local_solr');
-        $curl = new curl();
+        $curl = new \curl();
         $result = $curl->post($config->spamclassifierhost.':'.$config->spamclassifierport, array('text' => $text));
         if ($result_decoded = json_decode($result))  {
             if ($result_decoded['cat'] == 'spam') {
